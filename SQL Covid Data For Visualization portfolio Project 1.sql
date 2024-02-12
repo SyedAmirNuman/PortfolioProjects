@@ -160,7 +160,7 @@ select *, (rollingpeoplevaccinated/population)*100 percentageofvaccination
 from #percentofpeoplevaccinated
 order by location, date
 
---looking at the Cardiovasc death rate by country
+--looking at the Cardiovasc death rate by Population
 
 select location, population, cardiovasc_death_rate, (cardiovasc_death_rate/population)*100 as DeathByHeartAttackpercentage
 from [project covid]..covid_Vaccination
@@ -190,7 +190,7 @@ where continent is not null
 group by continent
 --order by TotalDeathCount desc
 
-create view HeartAttackRateByCountryInCovid as
+create view HeartAttackRateincreasedbyInCovid as
 select location, population, cardiovasc_death_rate, (cardiovasc_death_rate/population)*100 as DeathByHeartAttackpercentage
 from [project covid]..covid_Vaccination
 where continent is not null
